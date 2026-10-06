@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block title %}Login | StreetSOS{% endblock %}
+{% block content %}
+<main class="auth-shell">
+    <div class="container-fluid p-0"><div class="row g-0 min-vh-auth">
+        <div class="col-lg-6 auth-visual auth-login-photo"><div class="auth-overlay"></div><div class="auth-visual-copy"><span class="eyebrow eyebrow-light">WELCOME BACK</span><h1>Continue making<br><em>a difference.</em></h1><p>Citizens, municipal admins and workers all enter through one secure login. StreetSOS takes each role to the right workspace.</p><div class="login-role-chips"><span><i class="bi bi-person-heart"></i> Citizen</span><span><i class="bi bi-buildings"></i> Admin</span><span><i class="bi bi-tools"></i> Worker</span></div></div></div>
+        <div class="col-lg-6 auth-form-side"><div class="auth-form-wrap"><span class="eyebrow">SECURE ACCESS</span><h2>Login to StreetSOS</h2><p class="text-muted">Your role is detected automatically after authentication.</p><form method="post" class="mt-4 modern-form">
+            <div class="mb-3"><label class="form-label">Email Address</label><div class="input-icon"><i class="bi bi-envelope"></i><input class="form-control" type="email" name="email" value="{{ email }}" placeholder="name@example.com" required></div></div>
+            <div class="mb-4"><label class="form-label">Password</label><div class="input-icon"><i class="bi bi-lock"></i><input class="form-control" type="password" name="password" placeholder="Enter your password" required></div></div>
+            <button class="btn btn-streetsos w-100 py-3">Login <i class="bi bi-arrow-right ms-2"></i></button>
+        </form><div class="auth-divider"><span>New citizen?</span></div><a href="{{ url_for('auth.register') }}" class="btn btn-streetsos-outline w-100">Create Citizen Account</a><div class="secure-strip mt-4"><i class="bi bi-shield-lock-fill"></i><div><strong>Role-protected access</strong><small>Citizens, workers and admins see only the tools meant for them.</small></div></div></div></div>
+    </div></div>
+</main>
+{% endblock %}

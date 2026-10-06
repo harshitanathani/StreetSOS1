@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %}Register | StreetSOS{% endblock %}
+{% block content %}
+<main class="auth-shell">
+    <div class="container-fluid p-0"><div class="row g-0 min-vh-auth">
+        <div class="col-lg-6 auth-visual auth-register-photo"><div class="auth-overlay"></div><div class="auth-visual-copy"><span class="eyebrow eyebrow-light">JOIN YOUR CITY'S CIVIC NETWORK</span><h1>Your street.<br><em>Your voice.</em></h1><p>Report what needs attention and follow municipal action from the first photo to verified resolution.</p><div class="auth-benefits-grid"><div><i class="bi bi-camera"></i><span>Report with evidence</span></div><div><i class="bi bi-eye"></i><span>Track transparently</span></div><div><i class="bi bi-award"></i><span>Earn civic badges</span></div></div></div></div>
+        <div class="col-lg-6 auth-form-side"><div class="auth-form-wrap"><span class="eyebrow">CREATE CITIZEN ACCOUNT</span><h2>Register as a Citizen</h2><p class="text-muted">It takes less than a minute to join StreetSOS.</p><form method="post" class="mt-4 modern-form">
+            <div class="mb-3"><label class="form-label">Full Name</label><div class="input-icon"><i class="bi bi-person"></i><input class="form-control" name="name" value="{{ form.name }}" minlength="2" placeholder="Enter your full name" required></div></div>
+            <div class="mb-3"><label class="form-label">Email Address</label><div class="input-icon"><i class="bi bi-envelope"></i><input class="form-control" type="email" name="email" value="{{ form.email }}" placeholder="name@example.com" required></div></div>
+            <div class="mb-3"><label class="form-label">Password</label><div class="input-icon"><i class="bi bi-lock"></i><input class="form-control" type="password" name="password" minlength="6" placeholder="Minimum 6 characters" required></div></div>
+            <div class="mb-4"><label class="form-label">Confirm Password</label><div class="input-icon"><i class="bi bi-shield-lock"></i><input class="form-control" type="password" name="confirm_password" minlength="6" placeholder="Enter password again" required></div></div>
+            <button class="btn btn-streetsos w-100 py-3">Create Account <i class="bi bi-arrow-right ms-2"></i></button>
+        </form><div class="auth-divider"><span>Already part of StreetSOS?</span></div><a href="{{ url_for('auth.login') }}" class="btn btn-streetsos-outline w-100">Login to your account</a><p class="auth-note"><i class="bi bi-shield-check me-1"></i>Public signup is citizen-only. Municipal worker accounts are managed by administrators.</p></div></div>
+    </div></div>
+</main>
+{% endblock %}

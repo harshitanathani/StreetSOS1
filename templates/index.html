@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% block title %}StreetSOS | Report. Track. Resolve.{% endblock %}
+{% block content %}
+<main>
+<section class="hero-civic">
+    <div class="hero-photo" aria-hidden="true"></div>
+    <div class="hero-shade" aria-hidden="true"></div>
+    <div class="container hero-inner">
+        <div class="row align-items-center g-5">
+            <div class="col-lg-7 reveal">
+                <span class="eyebrow eyebrow-light"><i class="bi bi-buildings me-2"></i>COMMUNITY-POWERED CIVIC REPORTING</span>
+                <h1 class="hero-title mt-3">See a problem.<br><em>Make it visible.</em></h1>
+                <p class="hero-copy mt-4">From a dangerous pothole to a dark street or blocked drain, StreetSOS turns everyday civic problems into visible, trackable action.</p>
+                <div class="d-flex flex-column flex-sm-row gap-3 mt-4">
+                    <a class="btn btn-coral btn-lg" href="{{ url_for('auth.register') }}">Get Started <i class="bi bi-arrow-right ms-2"></i></a>
+                    <a class="btn btn-glass btn-lg" href="#how"><i class="bi bi-play-circle me-2"></i>See How It Works</a>
+                </div>
+                <div class="hero-trust mt-5">
+                    <div><i class="bi bi-clock-history"></i><strong>48 hrs</strong><span>SLA target</span></div>
+                    <div><i class="bi bi-shield-check"></i><strong>Transparent</strong><span>Status tracking</span></div>
+                    <div><i class="bi bi-geo-alt"></i><strong>Location-aware</strong><span>Map & GPS</span></div>
+                </div>
+            </div>
+            <div class="col-lg-5 reveal delay-1">
+                <div class="floating-dashboard">
+                    <div class="fd-top"><div><span class="mini-label">LIVE CIVIC PULSE</span><h2>Neighbourhood overview</h2></div><span class="live-chip"><span></span>Live</span></div>
+                    <div class="fd-stats"><div><strong>24</strong><small>Open</small></div><div><strong>11</strong><small>In Progress</small></div><div><strong>86%</strong><small>Resolved</small></div></div>
+                    <div class="fd-list-title">RECENT ACTIVITY</div>
+                    <div class="fd-ticket"><span class="ticket-icon road"><i class="bi bi-cone-striped"></i></span><div><strong>Large pothole</strong><small>GST Road · High Priority</small></div><span class="status-dot amber"></span></div>
+                    <div class="fd-ticket"><span class="ticket-icon light"><i class="bi bi-lightbulb"></i></span><div><strong>Streetlight outage</strong><small>Park Street · Resolved</small></div><span class="status-dot green"></span></div>
+                    <div class="fd-sla"><i class="bi bi-lightning-charge-fill"></i><div><strong>48-hour SLA protection</strong><small>Overdue issues are automatically escalated.</small></div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="impact-ribbon">
+    <div class="container impact-grid">
+        <div><span class="impact-kicker">CITIZEN → CITY</span><strong>One transparent workflow</strong></div>
+        <div><i class="bi bi-camera"></i><strong>Photo Evidence</strong><span>Show exactly what is wrong</span></div>
+        <div><i class="bi bi-diagram-3"></i><strong>Smart Routing</strong><span>Prioritise the right department</span></div>
+        <div><i class="bi bi-check2-circle"></i><strong>Verified Closure</strong><span>Citizens confirm the fix</span></div>
+    </div>
+</section>
+
+<section class="section-pad bg-soft" id="categories">
+    <div class="container">
+        <div class="section-heading-row reveal"><div><span class="eyebrow">WHAT YOU CAN REPORT</span><h2 class="section-title">Everyday city issues.<br><em>One place to act.</em></h2></div><p>StreetSOS organises reports into clear civic categories so municipal teams can respond faster and citizens always know what happens next.</p></div>
+        <div class="category-photo-grid mt-5">
+            <article class="photo-category cat-road reveal" style="--cat-photo:url('https://images.unsplash.com/photo-1449824913935-59a10b8d2000?auto=format&fit=crop&w=1000&q=82')"><div class="cat-overlay"></div><div class="cat-content"><span class="cat-no">01</span><i class="bi bi-cone-striped"></i><h3>Roads</h3><p>Potholes, damaged roads and unsafe obstructions.</p></div></article>
+            <article class="photo-category cat-garbage reveal delay-1" style="--cat-photo:url('https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?auto=format&fit=crop&w=1000&q=82')"><div class="cat-overlay"></div><div class="cat-content"><span class="cat-no">02</span><i class="bi bi-trash3"></i><h3>Garbage</h3><p>Overflowing bins, dumping and uncollected waste.</p></div></article>
+            <article class="photo-category cat-drain reveal delay-2" style="--cat-photo:url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1000&q=82')"><div class="cat-overlay"></div><div class="cat-content"><span class="cat-no">03</span><i class="bi bi-water"></i><h3>Drainage</h3><p>Blocked drains, open drains and waterlogging.</p></div></article>
+            <article class="photo-category cat-light reveal delay-3" style="--cat-photo:url('https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1000&q=82')"><div class="cat-overlay"></div><div class="cat-content"><span class="cat-no">04</span><i class="bi bi-lightbulb"></i><h3>Lighting</h3><p>Broken streetlights, flickering lights and dark stretches.</p></div></article>
+        </div>
+    </div>
+</section>
+
+<section class="section-pad process-section" id="how">
+    <div class="container">
+        <div class="row g-5 align-items-start">
+            <div class="col-lg-5 reveal"><div class="process-photo-card"><div class="process-photo"></div><div class="process-photo-copy"><span class="eyebrow eyebrow-light">FROM REPORT TO RESULT</span><h2>Visible progress.<br>Real accountability.</h2><p>Every status change stays visible instead of disappearing into a complaint box.</p></div></div></div>
+            <div class="col-lg-7 reveal delay-1"><span class="eyebrow">HOW STREETSOS WORKS</span><h2 class="section-title mb-4">Five simple steps to a<br><em>verified resolution.</em></h2>
+                {% for n, icon, title, text in [('01','camera','Report','Upload a photo, describe the issue and pin the exact location.'),('02','activity','Prioritise','StreetSOS calculates severity and starts the 48-hour SLA.'),('03','person-check','Assign','Municipal admins route the complaint to the right worker.'),('04','tools','Resolve','Workers update progress and provide resolution notes or proof.'),('05','patch-check','Verify','The citizen confirms that the issue has actually been fixed.')] %}
+                <div class="workflow-rich"><span class="workflow-number">{{ n }}</span><span class="workflow-icon"><i class="bi bi-{{ icon }}"></i></span><div><h3>{{ title }}</h3><p>{{ text }}</p></div></div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="cta-photo-section container mb-5 reveal">
+    <div class="cta-photo"><div class="cta-photo-overlay"></div><div class="cta-photo-copy"><span class="eyebrow eyebrow-light">YOUR STREET. YOUR VOICE.</span><h2>Help make your neighbourhood better.</h2><p>Create a citizen account, report what you see and follow every issue until it is resolved.</p><a class="btn btn-light btn-lg" href="{{ url_for('auth.register') }}">Create Citizen Account <i class="bi bi-arrow-up-right ms-2"></i></a></div></div>
+</section>
+</main>
+{% endblock %}
